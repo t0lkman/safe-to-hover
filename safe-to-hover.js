@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 'use strict';
 (function(global) {
-  var DELAY_BEFORE_HOVER_IS_SAFE_IN_MS = 45; // ~3ish frames.
+  var DELAY_BEFORE_HOVER_IS_SAFE_IN_MS = 200;
 
   function decorateScrollableElement(scrollableEl) {
     var bodyEl = getBodyElForScrollingEl(scrollableEl);
