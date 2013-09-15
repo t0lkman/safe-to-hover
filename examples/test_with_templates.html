@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2013 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      x-lotsa-blocks {
+        display: inline;
+      }
+
+      x-lotsa-blocks > * {
+        margin: 8px;
+      }
+    </style>
+    <script src="../safe-to-hover.js"></script>
+  </head>
+  <body>
+    <template id="one-block">
+      <x-my-block>
+        <style>
+          img {
+            box-shadow: 15px 15px 15px;
+            border: 8px solid black;
+            border-radius: 60px;
+            width: 128px;
+            height: 128px;
+          }
+          body[safe-to-hover] img:hover {
+            border: 8px solid red;
+          }
+        </style>
+        <img src="images/chrome-logo.png">
+      </x-my-block>
+    </template>
+    <x-lotsa-blocks>
+    </x-lotsa-blocks>
+    <script>
+      SafeToHover.decorateScrollableElement(window);
+      var oneBlockTemplate = document.querySelector('#one-block');
+      for (var i = 0; i < 1000; i++) {
+        var el = oneBlockTemplate.content.cloneNode();
+        document.querySelector('x-lotsa-blocks').appendChild(el);
+      }
+    </script>
+  </body>
+</html>
