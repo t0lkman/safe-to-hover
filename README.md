@@ -8,6 +8,8 @@ Why? [Because painting is really
 scroll a page fast, it leaves a trail of required repainting underneath the
 cursor as the document flies by. This makes the page janky. We dont like jank.
 
+This needs crbug.com/318468 to be fixed before this is fast.
+
 # 123
 If your toplevel document is what scrolls:
 
